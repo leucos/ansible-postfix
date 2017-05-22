@@ -1,0 +1,14 @@
+- name: Installs postfix
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - postfix
+    - mailutils
+
+- name: Configures main.cf
+  template:
+    src: main.cf.j2
+    dest: /etc/postfix/main.cf
+    mode: 0644
+  notify: Restart postfix

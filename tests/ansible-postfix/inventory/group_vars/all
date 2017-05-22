@@ -1,0 +1,8 @@
+postfix_virtual_alias_maps: hash:/etc/postfix/virtual
+postfix_virtual_mailbox_domains: hash:/etc/postfix/vmail_domains
+postfix_virtual_mailbox_maps: hash:/etc/postfix/vmail_mailbox
+postfix_virtual_mailbox_base: /var/vmail
+postfix_virtual_minimum_uid: 2222
+postfix_virtual_transport: virtual
+postfix_virtual_uid_maps: static:2222
+postfix_virtual_gid_maps: static:2222

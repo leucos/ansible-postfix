@@ -1,0 +1,24 @@
+postfix_smtpd_tls_cert_file: /etc/ssl/certs/ssl-cert-snakeoil.pem
+postfix_smtpd_tls_key_file: /etc/ssl/private/ssl-cert-snakeoil.key
+postfix_smtpd_use_tls: "yes"
+
+# Alternatives:
+# - "loopback-only"
+# - IPs
+postfix_inet_interfaces: [ "all" ]
+
+postfix_mydestination: []
+postfix_mynetworks: []
+
+postfix_relayhost: ""
+
+# Virtual config
+
+postfix_virtual_alias_maps: False
+postfix_virtual_mailbox_domains: False
+postfix_virtual_mailbox_maps: False
+postfix_virtual_mailbox_base: False
+postfix_virtual_minimum_uid: False
+postfix_virtual_transport: False
+postfix_virtual_uid_maps: False
+postfix_virtual_gid_maps: False
