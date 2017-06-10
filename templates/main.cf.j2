@@ -49,17 +49,29 @@ mydestination = {{ dests | join(',') }}
 {% endfor %}
 mynetworks = {{ nets | join(',') }}
 
+{% if postfix_smtp_sender_restrictions %}
+smtpd_sender_restrictions = {{ postfix_smtp_sender_restrictions | join(",") }}
+{% endif %}
+
 relayhost = {{ postfix_relayhost }}
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = {{ postfix_inet_interfaces | join(',') }}
 inet_protocols = all
 
-{% if postfix_virtual_alias_maps %}virtual_alias_maps = {{ postfix_virtual_alias_maps }}{% endif %}
-{% if postfix_virtual_mailbox_domains %}virtual_mailbox_domains = {{ postfix_virtual_mailbox_domains }}{% endif %}
-{% if postfix_virtual_mailbox_maps %}virtual_mailbox_maps = {{ postfix_virtual_mailbox_maps }}{% endif %}
-{% if postfix_virtual_mailbox_base %}virtual_mailbox_base = {{ postfix_virtual_mailbox_base }}{% endif %}
-{% if postfix_virtual_minimum_uid %}virtual_minimum_uid = {{ postfix_virtual_minimum_uid }}{% endif %}
-{% if postfix_virtual_transport %}virtual_transport = {{ postfix_virtual_transport }}{% endif %}
-{% if postfix_virtual_uid_maps %}virtual_uid_maps = {{ postfix_virtual_uid_maps }}{% endif %}
-{% if postfix_virtual_gid_maps %}virtual_gid_maps = {{ postfix_virtual_gid_maps }}{% endif %}
+{% if postfix_virtual_alias_maps %}virtual_alias_maps = {{ postfix_virtual_alias_maps }}
+{% endif %}
+{% if postfix_virtual_mailbox_domains %}virtual_mailbox_domains = {{ postfix_virtual_mailbox_domains }}
+{% endif %}
+{% if postfix_virtual_mailbox_maps %}virtual_mailbox_maps = {{ postfix_virtual_mailbox_maps }}
+{% endif %}
+{% if postfix_virtual_mailbox_base %}virtual_mailbox_base = {{ postfix_virtual_mailbox_base }}
+{% endif %}
+{% if postfix_virtual_minimum_uid %}virtual_minimum_uid = {{ postfix_virtual_minimum_uid }}
+{% endif %}
+{% if postfix_virtual_transport %}virtual_transport = {{ postfix_virtual_transport }}
+{% endif %}
+{% if postfix_virtual_uid_maps %}virtual_uid_maps = {{ postfix_virtual_uid_maps }}
+{% endif %}
+{% if postfix_virtual_gid_maps %}virtual_gid_maps = {{ postfix_virtual_gid_maps }}
+{% endif %}

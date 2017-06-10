@@ -23,3 +23,4 @@ postfix_virtual_transport: False
 postfix_virtual_uid_maps: False
 postfix_virtual_gid_maps: False
 
+postfix_smtp_sender_restrictions: False

@@ -12,3 +12,10 @@
     dest: /etc/postfix/main.cf
     mode: 0644
   notify: Restart postfix
+
+- name: Sets mailname
+  copy:
+    dest: /etc/mailname
+    content: "{{ postfix_mailname | default(inventory_hostname) }}"
+  notify: Restart postfix
+
